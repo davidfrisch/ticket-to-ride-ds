@@ -1,190 +1,259 @@
 {
   "SEVASTOPOL": {
     "x": 0.8472274541854858,
-    "y": 0.659014880657196
+    "y": 0.659014880657196,
+    "connections": ["CONSTANTINOPLE", "BUCURESTI", "ROSTOV", "SOCHI", "ERZURUM"]
   },
   "PALERMO": {
     "x": 0.48180609941482544,
-    "y": 0.9331163167953491
+    "y": 0.9331163167953491,
+    "connections": ["BRINDISI", "ROMA", "SMYRNA"]
   },
   "ROSTOV": {
     "x": 0.9399192929267883,
-    "y": 0.5556029081344604
+    "y": 0.5556029081344604,
+    "connections": ["SEVASTOPOL", "SOCHI", "KHARKOV"]
   },
   "AMSTERDAM": {
     "x": 0.3188980519771576,
-    "y": 0.2975180149078369
+    "y": 0.2975180149078369,
+    "connections": ["LONDON", "BRUXELLES", "ESSEN"]
   },
   "ERZURUM": {
     "x": 0.9177015423774719,
-    "y": 0.8676716685295105
+    "y": 0.8676716685295105,
+    "connections": ["SEVASTOPOL", "SOCHI", "ANGORA"]
   },
   "BUDAPEST": {
     "x": 0.5783435702323914,
-    "y": 0.5332990288734436
+    "y": 0.5332990288734436,
+    "connections": ["ZAGRAB", "WIEN", "BUCURESTI", "KYIV", "SARAJEVO"]
   },
   "MARSEILLE": {
     "x": 0.34303897619247437,
-    "y": 0.6931461095809937
+    "y": 0.6931461095809937,
+    "connections": ["PAMPLONA", "BARCELONA", "PARIS", "ZURICH", "ROMA"]
   },
   "KYIV": {
     "x": 0.7712069153785706,
-    "y": 0.4021017849445343
+    "y": 0.4021017849445343,
+    "connections": [
+      "WILNO",
+      "WARSZAWA",
+      "BUDAPEST",
+      "BUCURESTI",
+      "KHARKOV",
+      "SMOLENSK"
+    ]
   },
   "ESSEN": {
     "x": 0.39232897758483887,
-    "y": 0.31141898036003113
+    "y": 0.31141898036003113,
+    "connections": ["FRANKFURT", "BERLIN", "AMSTERDAM", "KOBENHAVN"]
   },
   "ATHINA": {
     "x": 0.6442551612854004,
-    "y": 0.8946033120155334
+    "y": 0.8946033120155334,
+    "connections": ["BRINDIS", "SARAJEVO", "SOFIA", "SMYRNA"]
   },
   "LISBOA": {
     "x": 0.04632437601685524,
-    "y": 0.8475254774093628
+    "y": 0.8475254774093628,
+    "connections": ["CADIZ", "MADRID"]
   },
   "DANZIC": {
     "x": 0.5887550115585327,
-    "y": 0.22548064589500427
+    "y": 0.22548064589500427,
+    "connections": ["WARSZAWA", "BERLIN", "RICA"]
   },
   "EDINBURG": {
     "x": 0.17487619817256927,
-    "y": 0.08023715019226074
+    "y": 0.08023715019226074,
+    "connections": ["LONDON"]
   },
   "ZAGRAB": {
     "x": 0.5236902236938477,
-    "y": 0.629048764705658
+    "y": 0.629048764705658,
+    "connections": ["VENEZIA", "WIEN", "BUDAPEST", "SARAJEVO"]
   },
   "STOCKHOLM": {
     "x": 0.5526487231254578,
-    "y": 0.057884808629751205
+    "y": 0.057884808629751205,
+    "connections": ["PETROGRAD", "KOBENHAVN"]
   },
   "PETROGRAD": {
     "x": 0.821211576461792,
-    "y": 0.09132009744644165
+    "y": 0.09132009744644165,
+    "connections": ["STOCKHOLM", "WILNO", "MOSKVA", "RICA"]
   },
   "BRINDISI": {
     "x": 0.5272259712219238,
-    "y": 0.7758561372756958
+    "y": 0.7758561372756958,
+    "connections": ["ROMA", "PALERMO", "ATHINA"]
   },
   "KHARKOV": {
     "x": 0.8986485004425049,
-    "y": 0.4775838851928711
+    "y": 0.4775838851928711,
+    "connections": ["ROSTOV", "KYIV", "MOSKVA"]
   },
   "LONDON": {
     "x": 0.2285969853401184,
-    "y": 0.2922910749912262
+    "y": 0.2922910749912262,
+    "connections": ["EDINBURG", "DIEPPE", "AMSTERDAM"]
   },
   "FRANKFURT": {
     "x": 0.37735897302627563,
-    "y": 0.40697765350341797
+    "y": 0.40697765350341797,
+    "connections": [
+      "BRUXELLES",
+      "PARIS",
+      "MUNCHEN",
+      "BERLIN",
+      "ESSEN",
+      "AMSTERDAM"
+    ]
   },
   "KOBENHAVN": {
     "x": 0.45755869150161743,
-    "y": 0.16598835587501526
+    "y": 0.16598835587501526,
+    "connections": ["STOCKHOLM", "ESSEN"]
   },
   "RICA": {
     "x": 0.664242148399353,
-    "y": 0.09927123039960861
+    "y": 0.09927123039960861,
+    "connections": ["PETROGRAD", "DANZIC", "WILNO"]
   },
   "WARSZAWA": {
     "x": 0.6312704086303711,
-    "y": 0.3249194622039795
+    "y": 0.3249194622039795,
+    "connections": ["WILNO", "DANZIC", "WIEN", "BERLIN", "KYIV"]
   },
   "BARCELONA": {
     "x": 0.21198569238185883,
-    "y": 0.8329573273658752
+    "y": 0.8329573273658752,
+    "connections": ["PAMPLONA", "MARSEILLE", "MADRID"]
   },
   "SOCHI": {
     "x": 0.9344501495361328,
-    "y": 0.6837954521179199
+    "y": 0.6837954521179199,
+    "connections": ["ERZURUM", "SEVASTOPOL", "ROSTOV"]
   },
   "ANGORA": {
     "x": 0.839146077632904,
-    "y": 0.8969709873199463
+    "y": 0.8969709873199463,
+    "connections": ["ERZURUM", "CONSTANTINOPLE", "SMYRNA"]
   },
   "SMOLENSK": {
     "x": 0.8309392929077148,
-    "y": 0.2948024570941925
+    "y": 0.2948024570941925,
+    "connections": ["MOSKVA", "WILNO", "KYIV"]
   },
   "BUCURESTI": {
     "x": 0.7162250876426697,
-    "y": 0.6359066367149353
+    "y": 0.6359066367149353,
+    "connections": ["SEVASTOPOL", "SOFIA", "BUDAPEST", "KYIV", "CONSTANTINOPLE"]
   },
   "WIEN": {
     "x": 0.5327101349830627,
-    "y": 0.49640342593193054
+    "y": 0.49640342593193054,
+    "connections": ["ZAGRAB", "BUDAPEST", "BERLIN", "WARSZAWA", "MUNCHEN"]
   },
   "MUNCHEN": {
     "x": 0.4309457540512085,
-    "y": 0.4758043885231018
+    "y": 0.4758043885231018,
+    "connections": ["FRANKFURT", "ZURICH", "VENEZIA", "WIEN"]
   },
   "MOSKVA": {
     "x": 0.911923885345459,
-    "y": 0.2606799006462097
+    "y": 0.2606799006462097,
+    "connections": ["PETROGRAD", "KHARKOV", "SMOLENSK"]
   },
   "BERLIN": {
     "x": 0.4830514192581177,
-    "y": 0.3337354362010956
+    "y": 0.3337354362010956,
+    "connections": ["FRANKFURT", "DANZIC", "ESSEN", "WIEN", "WARSAW"]
   },
   "VENEZIA": {
     "x": 0.44382235407829285,
-    "y": 0.6117658019065857
+    "y": 0.6117658019065857,
+    "connections": ["ROMA", "ZAGRAB", "MUNCHEN", "ZURICH"]
   },
   "PAMPLONA": {
     "x": 0.20264998078346252,
-    "y": 0.699088454246521
+    "y": 0.699088454246521,
+    "connections": ["PARIS", "BARCELONA", "MADRID", "MARSEILLE"]
   },
   "SARAJEVO": {
     "x": 0.5987966060638428,
-    "y": 0.7127934694290161
+    "y": 0.7127934694290161,
+    "connections": ["ZAGRAB", "BUDAPEST", "SOFIA", "ATHINA"]
   },
   "DIEPPE": {
     "x": 0.21997188031673431,
-    "y": 0.42186757922172546
+    "y": 0.42186757922172546,
+    "connections": ["LONDON", "PARIS", "BREST"]
   },
   "BRUXELLES": {
     "x": 0.2944301962852478,
-    "y": 0.3612770736217499
+    "y": 0.3612770736217499,
+    "connections": ["AMSTERDAM", "PARIS", "FRANKFURT", "DIEPPE"]
   },
   "SMYRNA": {
     "x": 0.7245156764984131,
-    "y": 0.930464506149292
+    "y": 0.930464506149292,
+    "connections": ["ATHINA", "PALERMO", "CONSTANTINOPLE", "ANGORA"]
   },
   "CADIZ": {
     "x": 0.10818428546190262,
-    "y": 0.9286457300186157
+    "y": 0.9286457300186157,
+    "connections": ["LISBOA", "MADRID"]
   },
   "CONSTANTINOPLE": {
     "x": 0.7652324438095093,
-    "y": 0.8145028352737427
+    "y": 0.8145028352737427,
+    "connections": ["SOFIA", "SMYRNA", "ANGORA", "BUCURESTI", "SEVASTOPOL"]
   },
   "ROMA": {
     "x": 0.45075148344039917,
-    "y": 0.7372151613235474
+    "y": 0.7372151613235474,
+    "connections": ["MARSEILLE", "BRINDIS", "PALERMO", "VENEZIA"]
   },
   "ZURICH": {
     "x": 0.3693225681781769,
-    "y": 0.563435971736908
+    "y": 0.563435971736908,
+    "connections": ["PARIS", "MARSEILLE", "VENEZIA", "MUNCHEN"]
   },
   "WILNO": {
     "x": 0.7355439066886902,
-    "y": 0.29064109921455383
+    "y": 0.29064109921455383,
+    "connections": ["PETROGRAD", "RICA", "KYIV", "SMOLENSK"]
   },
   "PARIS": {
     "x": 0.2603640854358673,
-    "y": 0.4803726375102997
+    "y": 0.4803726375102997,
+    "connections": [
+      "DIEPPE",
+      "BRUXELLES",
+      "PAMPLONA",
+      "BREST",
+      "ZURICH",
+      "FRANKFURT",
+      "MARSEILLE"
+    ]
   },
   "SOFIA": {
     "x": 0.6598594784736633,
-    "y": 0.7258680462837219
+    "y": 0.7258680462837219,
+    "connections": ["SARAJEVO", "ATHINA", "BUCURESTI", "CONSTANTINOPLE"]
   },
   "MADRID": {
     "x": 0.11147847026586533,
-    "y": 0.815229058265686
+    "y": 0.815229058265686,
+    "connections": ["PAMPLONA", "BARCELONA", "CADIZ", "LISBOA"]
   },
   "BREST": {
     "x": 0.13818027079105377,
-    "y": 0.46252942085266113
+    "y": 0.46252942085266113,
+    "connections": ["DIEPPE", "PARIS", "PAMPLONA"]
   }
 }
