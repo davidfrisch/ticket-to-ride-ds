@@ -12,6 +12,7 @@ class City(pydantic.BaseModel):
     name: str
     x: float
     y: float
+    connections: List[str] = []
 
     def __str__(self):
         return f"{self.name}: ({self.x}, {self.y})"
@@ -22,25 +23,26 @@ class City(pydantic.BaseModel):
 
 def get_cities_ref():
     with open("./data/cities.json", "r") as f:
-        cities_names = json.load(f)
-    if cities_names is None:
-        raise FileNotFoundError("Could not read cities.json")
-    return cities_names
+        return json.load(f)
+   
       
   
-def find_closest_city(x, y) -> str:
+def find_closest_city(x, y) -> City:
     """Finds the closest city from the reference map."""
     cities = get_cities_ref()
     closest_city = None
     min_distance = float("inf")
     
-    for city, coords in cities.items():
-        distance = (x - coords["x"])**2 + (y - coords["y"])**2
+    for city, attributes in cities.items():
+        distance = (x - attributes["x"])**2 + (y - attributes["y"])**2
         if distance < min_distance:
             min_distance = distance
             closest_city = city
-            
-    return closest_city  
+    
+    if closest_city is None:
+        raise ValueError("No cities found.")
+      
+    return City(name=closest_city, x=x, y=y, connections=cities[closest_city].get("connections", []))
 
 
 def distance_between_cities(city1: City, city2: City) -> float:
@@ -48,7 +50,7 @@ def distance_between_cities(city1: City, city2: City) -> float:
     return ((city1.x - city2.x) ** 2 + (city1.y - city2.y) ** 2) ** 0.5
   
 
-def get_cities_normalized(result, image) -> np.ndarray:
+def get_cities_normalized(result) -> np.ndarray:
     """Extracts normalized bounding box centers from YOLO results."""
     boxes = result.boxes.xywhn  # Get normalized bounding boxes
     
@@ -64,8 +66,47 @@ def get_cities_normalized(result, image) -> np.ndarray:
     return normalized_pts
 
 
-def remove_duplicates(cities: List[City], threshold=0.1) -> List[City]:
-    """Keeps only the closest detected city to the reference coordinates, ignoring outliers."""
+def remove_duplicates(cities: List[City], threshold=0.02) -> List[City]:
+    """Removes duplicate cities that are too close together by averaging them."""
+    unique_cities = []
+    grouped_cities = defaultdict(list)
+
+    # Group detected cities by name
+    for city in cities:
+        grouped_cities[city.name].append(city)
+
+    # Process each city group
+    for city_name, instances in grouped_cities.items():
+        if len(instances) == 1:
+            unique_cities.append(instances[0])  # ✅ Keep single detections as they are
+            continue
+
+        merged_cities = []
+        
+        while instances:
+            base_city = instances.pop(0)
+            close_cities = [base_city]  # Start with the base city
+
+            # Find other cities that are within the threshold
+            for other in instances[:]:  # Copy of list to avoid modifying while iterating
+                distance = ((base_city.x - other.x) ** 2 + (base_city.y - other.y) ** 2) ** 0.5
+                if distance < threshold:
+                    close_cities.append(other)
+                    instances.remove(other)  # Remove it from the list
+
+            # Compute the average position
+            avg_x = np.mean([c.x for c in close_cities])
+            avg_y = np.mean([c.y for c in close_cities])
+            
+            merged_cities.append(City(name=city_name, x=avg_x, y=avg_y))
+
+        unique_cities.extend(merged_cities)
+
+    return unique_cities
+
+
+def _remove_duplicates(cities: List[City], threshold=0.02) -> List[City]:
+    """Keeps only the closest detected city to the reference coordinates."""
     unique_cities = []
     grouped_cities = defaultdict(list)
     cities_ref = get_cities_ref()  # Reference city locations
@@ -74,7 +115,7 @@ def remove_duplicates(cities: List[City], threshold=0.1) -> List[City]:
     for city in cities:
         grouped_cities[city.name].append(city)
 
-    # Keep only the closest detection per city within the threshold
+    # Keep only the closest detection per city
     for city_name, instances in grouped_cities.items():
         ref_coords = cities_ref.get(city_name)
 
@@ -83,19 +124,12 @@ def remove_duplicates(cities: List[City], threshold=0.1) -> List[City]:
             best_city = min(instances, key=lambda c: (c.x**2 + c.y**2))  
         else:
             ref_x, ref_y = ref_coords["x"], ref_coords["y"]
-            
-            # Find the closest detection
             best_city = min(instances, key=lambda c: (c.x - ref_x) ** 2 + (c.y - ref_y) ** 2)
-            min_distance = ((best_city.x - ref_x) ** 2 + (best_city.y - ref_y) ** 2) ** 0.5  # Euclidean distance
-
-            # Only keep if it's within the threshold
-            print(f"Distance to {city_name}: {min_distance}")
-            if min_distance > threshold:
-                continue  # Ignore detections that are too far
 
         unique_cities.append(best_city)
 
     return unique_cities
+
 
  
 def predict_missing_city(missing_city, known_cities):
@@ -137,7 +171,6 @@ def predict_missing_city(missing_city, known_cities):
     avg_x = np.mean([city[2]['x'] for city in closest_cities])
     avg_y = np.mean([city[2]['y'] for city in closest_cities])
 
-    print(f"Predicted location of {missing_city}: ({avg_x}, {avg_y})")
     return {'x': avg_x, 'y': avg_y}
 
 
@@ -151,17 +184,22 @@ def predict_cities(image) -> List[City]:
         return image
     
     result = results[0]
-    image_with_circles = image.copy()
-    cities_normalized = get_cities_normalized(result, image_with_circles)
-    
+    cities_normalized = get_cities_normalized(result)
+    print(f"Detected {len(cities_normalized)} cities.")
     cities_predicted: List[City] = []
+   
+   
     for city_normalized in cities_normalized:
         x, y = city_normalized
-        city = find_closest_city(x, y)
-        cities_predicted.append(City(name=city, x=x, y=y))
+        try:
+            city = find_closest_city(x, y)
+            cities_predicted.append(city)
+        except ValueError:
+            print(f"No city found for coordinates ({x}, {y}).")
         
     
     cities_filtered = remove_duplicates(cities_predicted)
+    print(f"Filtered down to {len(cities_filtered)} unique cities.")
     found_cities_names = [city.name for city in cities_filtered]
     known_cities = get_cities_ref()
     
@@ -189,10 +227,15 @@ def predict_cities(image) -> List[City]:
 def draw_cities(image, cities: List[City]):
     for city in cities:
         x, y = int(city.x * image.shape[1]), int(city.y * image.shape[0])
-        cv2.circle(image, (x, y), 5, (0, 0, 255), -1)
-        cv2.putText(image, city.name, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+        cv2.circle(image, (x, y), 10, (0, 0, 255), -1)
+        # IN BLACK AND BIGGER 
+        cv2.putText(image, city.name, (x, y), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 0), 4)
         
     return image
+
+
+
+
 
 
 
@@ -202,22 +245,12 @@ def detect_cities(path_image: str):
         raise FileNotFoundError(f"Could not read image: {path_image}")
     
     cities = predict_cities(image)
-    image_with_cities = draw_cities(image, cities)
-    filename = path_image.split("/")[-1].split(".")[0]
-    os.makedirs("detect_cities", exist_ok=True)
     
+    os.makedirs("detect_cities", exist_ok=True)
+    filename = path_image.split("/")[-1].split(".")[0]
     image_with_cities = draw_cities(image, cities)
     cv2.imwrite(f"detect_cities/cities_{filename}.jpg", image_with_cities)
 
-    
-def draw_cities(image, cities: List[City]):
-    for city in cities:
-        x, y = int(city.x * image.shape[1]), int(city.y * image.shape[0])
-        cv2.circle(image, (x, y), 5, (0, 0, 255), -1)
-        cv2.putText(image, city.name, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-        
-    return image
-    
     
 
 if __name__ == '__main__':
