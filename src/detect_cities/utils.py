@@ -75,9 +75,10 @@ def get_angle_of_board(points_normalized):
 def draw_cities(image, cities: List[City]):
     for city in cities:
         x, y = int(city.x * image.shape[1]), int(city.y * image.shape[0])
+        color = (0, 255, 0)
         radius_relative = 0.01
         radius = int(min(image.shape[0], image.shape[1]) * radius_relative)
-        cv2.circle(image, (x, y), radius, (0, 0, 255), -1)
+        cv2.circle(image, (x, y), radius, color, -1)
         cv2.putText(image, city.name, (x, y), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 0), 4)
         
     return image
@@ -134,3 +135,19 @@ def identify_city_corners(points_normalized) -> List[City]:
         corners.append(City(name="PALERMO", x=most_middle_down.x, y=most_middle_down.y, connections=ref_cities["PALERMO"].connections))
   
     return corners
+
+
+def merge_close_pts(points_normalized: np.ndarray, threshold=0.02) -> np.ndarray:
+    merged_pts = []
+    for point in points_normalized:
+        found = False
+        for merged_point in merged_pts:
+            distance = np.linalg.norm(point - merged_point)
+            if distance < threshold:
+                found = True
+                break
+                
+        if not found:
+            merged_pts.append(point)
+            
+    return np.array(merged_pts)

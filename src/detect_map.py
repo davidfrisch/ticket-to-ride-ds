@@ -32,26 +32,19 @@ def rotate_map(image, map_box, boat_box):
     # Determine boat's position relative to the map
     relative_x = "left" if x_boat < x_map else "right"
     relative_y = "above" if y_boat < y_map else "below"
-    
-    print(f"Boat is {relative_y} and {relative_x} relative to the map.")
 
     # Determine rotation based on relative position
     if relative_x == "left" and relative_y == "below":
-        print("Bottom-left (correct position)")
         rotation = None  # Correct position
     elif relative_x == "right" and relative_y == "below":
-        print("Bottom-right")
         rotation = cv2.ROTATE_90_CLOCKWISE  # Rotate 90° CW
     elif relative_x == "left" and relative_y == "above":
-        print("Top-left")
         rotation = cv2.ROTATE_90_COUNTERCLOCKWISE  # Rotate 90° CCW
     else:
-        print("Top-right")
         rotation = cv2.ROTATE_180  # Rotate 180°
 
     # Apply rotation if needed
     if isinstance(rotation, int):
-        print(f"Rotating image {rotation}")
         image = cv2.rotate(image, rotation)
 
     return image
@@ -114,7 +107,7 @@ def crop_board(image, box):
 
 
 if __name__ == '__main__':
-    detect_map("../boards/europe/IMG_9618.jpg")
-    # for filename in os.listdir("../boards/europe")[0::10]:
-    #     if filename.lower().endswith((".jpg", ".png")):
-    #         detect_map(f"../boards/europe/{filename}")
+    # detect_map("../boards/europe/IMG_9618.jpg")
+    for filename in os.listdir("../boards/europe"):
+        if filename.lower().endswith((".jpg", ".png")):
+            detect_map(f"../boards/europe/{filename}")

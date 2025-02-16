@@ -6,9 +6,12 @@ import numpy as np
 from typing import List, Optional
 from collections import defaultdict
 from City import City
-from utils import draw_cities, identify_city_corners, get_cities_ref, rotate_image, get_angle_of_board, distance_between_points
+from utils import draw_cities, get_cities_ref, merge_close_pts, distance_between_points
 from math import sqrt
-from constants import MAX_MISSING_CITIES
+from constants import MAX_MISSING_CITIES, MAX_MISSING_POINTS
+from logging import getLogger
+
+logger = getLogger(__name__)
 
 def get_points_normalized(result: UltralyticsResults) -> np.ndarray:
     """Extracts normalized bounding box centers from YOLO results."""
@@ -126,7 +129,7 @@ def find_closest_city(points_normalized: np.ndarray, ref_cities: List[City]) -> 
         return City(name=possible_cities[0].name, x=points_normalized[0], y=points_normalized[1], connections=possible_cities[0].connections)
 
     elif len(possible_cities) > 1:
-        print(f"Multiple cities found for point {points_normalized}")
+        logger.info(f"Multiple cities found for point {points_normalized}")
         return None
       
     return None  
@@ -147,28 +150,13 @@ def get_missing_cities(cities: List[City], ref_cities: List[City]) -> List[str]:
     return missing_cities
 
 
-def merge_close_pts(points_normalized: np.ndarray, threshold=0.02) -> np.ndarray:
-    merged_pts = []
-    for point in points_normalized:
-        found = False
-        for merged_point in merged_pts:
-            distance = np.linalg.norm(point - merged_point)
-            if distance < threshold:
-                found = True
-                break
-                
-        if not found:
-            merged_pts.append(point)
-            
-    return np.array(merged_pts)
-
 
 def find_points_on_board(image) -> np.ndarray:
     model = YOLO("../../models/cities_best_2.pt")
     results = model(image)
     
     if len(results) == 0:
-        print("No board detected.")
+        logger.warning("No board detected.")
         return np.array([])
     
     result = results[0]
@@ -193,7 +181,7 @@ def get_neighbours_cities(city_name: str, cities_on_board: List[City], ref_citie
 
 def find_city_based_on_other_cities(missing_city_name: str, pts_with_no_city: np.ndarray, cities_on_board: List[City], ref_cities: List[City]) -> Optional[City]:
     """Estimates the location of a missing city using reference neighbors and matches it to the closest unidentified point."""
-    print(f"Estimating position for {missing_city_name}")
+    threshold = 0.02
     neighbours = get_neighbours_cities(missing_city_name, cities_on_board, ref_cities)
     if not neighbours:
         return None  # No known neighbors to infer position
@@ -225,13 +213,19 @@ def find_city_based_on_other_cities(missing_city_name: str, pts_with_no_city: np
     estimated_x = sum(x for x, _ in estimated_positions) / len(estimated_positions)
     estimated_y = sum(y for _, y in estimated_positions) / len(estimated_positions)
     estimated_position = np.array([estimated_x, estimated_y])
+    
+    distance_between_estimated_and_ref = np.linalg.norm(estimated_position - np.array([ref_city.x, ref_city.y]))
 
     # Find the closest point in `pts_with_no_city`
     distances = [distance_between_points(estimated_position, (point.x, point.y)) for point in pts_with_no_city]
     closest_point = pts_with_no_city[np.argmin(distances)]
+    if np.min(distances) > threshold:
+        if distance_between_estimated_and_ref > threshold:
+            logger.warning(f"Could not find a close point for {missing_city_name}")
+            return None
+        return City(name=missing_city_name, x=estimated_x, y=estimated_y, connections=ref_city.connections)
+    
     return City(name=missing_city_name, x=closest_point.x, y=closest_point.y, connections=ref_city.connections)
-    
-    
     
 
 
@@ -243,25 +237,35 @@ def find_cities(normalised_pts: np.ndarray) -> List[City]:
         city = find_closest_city(point, ref_cities)
         if city is not None:
             cities.append(city)
-        
-    cities = remove_duplicates(cities)
-    
+
+    cities = remove_duplicates(cities)    
     pts_with_no_city = [City(name="UNKNOWN", x=point[0], y=point[1]) for point in normalised_pts if not any(city.x == point[0] and city.y == point[1] for city in cities)]
     
     missing_cities = get_missing_cities(cities, ref_cities)
     if len(missing_cities) > MAX_MISSING_CITIES:
-        print(f"Too many missing cities: {len(missing_cities)}")
-        return cities
-      
-    print(f"Missing cities: {[city for city in missing_cities]}")
+        logger.error(f"Too many missing cities: {len(missing_cities)}")
+        raise ValueError("Too many missing cities")
+    
     for missing_city in missing_cities.copy():
         city = find_city_based_on_other_cities(missing_city, pts_with_no_city, cities, ref_cities)
         if city is not None:
             cities.append(city)
             missing_cities.remove(missing_city)
     
-    
-    print(f"Missing cities after estimation: {[city for city in missing_cities]}")
+    if missing_cities:
+        logger.error(f"Could not find position for: {missing_cities}")
+        raise ValueError(f"Could not find position for: {missing_cities}")
+      
+    city_names = [city.name for city in cities]
+    if len(set(city_names)) != len(city_names):
+        logger.error("Duplicate cities found")
+        raise ValueError("Duplicate cities found")
+
+    if len(cities) != len(ref_cities):
+        logger.error("Incorrect number of cities found")
+        raise ValueError("Incorrect number of cities found")
+      
+      
     return cities
 
 
@@ -273,24 +277,30 @@ def detect_cities(path_image: str):
     
     pts = find_points_on_board(image)
     num_missing_pts = len(ref_cities) - len(pts)
-    print(f"Missing pts {num_missing_pts}")
-    if num_missing_pts != 0:
-        print("Missing points, skipping")
+    if num_missing_pts > MAX_MISSING_POINTS:
+        logger.warning("Missing too many points, skipping")
         return
-    
-    cities = find_cities(pts)
-    
-    os.makedirs("outputs", exist_ok=True)
-    filename = path_image.split("/")[-1].split(".")[0]
-    draw_cities(image, cities)
-    cv2.imwrite(f"outputs/cities_{filename}.jpg", image)
+      
+    try:
+        cities = find_cities(pts)
+        
+
+        
+        os.makedirs("outputs", exist_ok=True)
+        filename = path_image.split("/")[-1].split(".")[0]
+        draw_cities(image, cities)
+        cv2.imwrite(f"outputs/cities_{filename}.jpg", image)
+    except Exception as e:
+        logger.error(f"Error processing {path_image}: {e}")
+        return
 
     
 
 if __name__ == '__main__':
     dir_path = "../detect_map"
+    # detect_cities(os.path.join(dir_path, "board_IMG_9618.jpg"))
     for filename in os.listdir(dir_path):
         if filename.split(".")[-1] not in ["jpg", "jpeg", "png"]:
             continue
-        print(f"Processing {filename}...")
+        logger.debug(f"Processing {filename}...")
         detect_cities(os.path.join(dir_path, filename))
