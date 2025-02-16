@@ -114,7 +114,7 @@ def crop_board(image, box):
 
 
 if __name__ == '__main__':
-    # detect_map("../boards/europe/IMG_9677.jpg")
-    for filename in os.listdir("../boards/europe")[10::20]:
+    # detect_map("../boards/europe/IMG_9619.jpg")
+    for filename in os.listdir("../boards/europe")[0::10]:
         if filename.lower().endswith((".jpg", ".png")):
             detect_map(f"../boards/europe/{filename}")

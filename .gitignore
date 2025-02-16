@@ -8,3 +8,4 @@ Aventurier*
 *.jpeg
 tickettoride-cities-*
 
+__pycache__
