@@ -9,6 +9,9 @@ def distance_between_cities(city1: City, city2: City) -> float:
     """Calculates the Euclidean distance between two cities."""
     return ((city1.x - city2.x) ** 2 + (city1.y - city2.y) ** 2) ** 0.5
 
+def distance_between_points(point1, point2):
+    """Calculates the Euclidean distance between two points."""
+    return ((point1[0] - point2[0]) ** 2 + (point1[1] - point2[1]) ** 2) ** 0.5
 
 
 def get_cities_ref() -> dict[str, City]:

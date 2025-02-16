@@ -6,7 +6,7 @@ import numpy as np
 from typing import List, Optional
 from collections import defaultdict
 from City import City
-from utils import draw_cities, identify_city_corners, get_cities_ref, rotate_image, get_angle_of_board
+from utils import draw_cities, identify_city_corners, get_cities_ref, rotate_image, get_angle_of_board, distance_between_points
 from math import sqrt
 from constants import MAX_MISSING_CITIES
 
@@ -113,15 +113,23 @@ def find_city(points_normalized: np.ndarray, city_name: str, ref_cities: List[Ci
     return None
   
 def find_closest_city(points_normalized: np.ndarray, ref_cities: List[City]) -> City:
-    closest_city = None
-    min_distance = np.inf
+    min_distance = 0.05
+    possible_cities = []
     for city in ref_cities:
         distance = sqrt((city.x - points_normalized[0]) ** 2 + (city.y - points_normalized[1]) ** 2)
-        if distance < min_distance:
-            min_distance = distance
-            closest_city = city
             
-    return closest_city     
+        if distance < min_distance:
+            possible_cities.append(city)
+    
+    
+    if len(possible_cities) == 1:
+        return City(name=possible_cities[0].name, x=points_normalized[0], y=points_normalized[1], connections=possible_cities[0].connections)
+
+    elif len(possible_cities) > 1:
+        print(f"Multiple cities found for point {points_normalized}")
+        return None
+      
+    return None  
 
 
 def get_missing_cities(cities: List[City], ref_cities: List[City]) -> List[str]:
@@ -183,8 +191,8 @@ def get_neighbours_cities(city_name: str, cities_on_board: List[City], ref_citie
 
 
 
-def find_city_based_on_other_cities(missing_city_name: str, cities_on_board: List[City], ref_cities: List[City]) -> Optional[City]:
-    """Estimates the location of a missing city using relative distances from its neighbors."""
+def find_city_based_on_other_cities(missing_city_name: str, pts_with_no_city: np.ndarray, cities_on_board: List[City], ref_cities: List[City]) -> Optional[City]:
+    """Estimates the location of a missing city using reference neighbors and matches it to the closest unidentified point."""
     print(f"Estimating position for {missing_city_name}")
     neighbours = get_neighbours_cities(missing_city_name, cities_on_board, ref_cities)
     if not neighbours:
@@ -192,7 +200,6 @@ def find_city_based_on_other_cities(missing_city_name: str, cities_on_board: Lis
 
     ref_city = next((city for city in ref_cities if city.name == missing_city_name), None)
     if not ref_city:
-        print(f"Missing reference city for {missing_city_name}")
         return None  # Missing city not found in reference
 
     estimated_positions = []
@@ -200,7 +207,6 @@ def find_city_based_on_other_cities(missing_city_name: str, cities_on_board: Lis
     for neighbor in neighbours:
         ref_neighbor = next((c for c in ref_cities if c.name == neighbor.name), None)
         if not ref_neighbor:
-            print(f"Missing reference city for {neighbor.name}")
             continue
         
         # Compute vector from neighbor to missing city in reference map
@@ -213,15 +219,17 @@ def find_city_based_on_other_cities(missing_city_name: str, cities_on_board: Lis
         estimated_positions.append((estimated_x, estimated_y))
 
     if not estimated_positions:
-        print(f"No estimated positions for {missing_city_name}")
-        return None  # No valid position found
+        return None  # No valid estimate
 
-    # Compute best estimate (e.g., mean, median, or another function)
+    # Compute the best estimated position (mean or weighted approach)
     estimated_x = sum(x for x, _ in estimated_positions) / len(estimated_positions)
     estimated_y = sum(y for _, y in estimated_positions) / len(estimated_positions)
+    estimated_position = np.array([estimated_x, estimated_y])
 
-    return City(name=missing_city_name, x=estimated_x, y=estimated_y, connections=[n.name for n in neighbours])
-    
+    # Find the closest point in `pts_with_no_city`
+    distances = [distance_between_points(estimated_position, (point.x, point.y)) for point in pts_with_no_city]
+    closest_point = pts_with_no_city[np.argmin(distances)]
+    return City(name=missing_city_name, x=closest_point.x, y=closest_point.y, connections=ref_city.connections)
     
     
     
@@ -229,34 +237,29 @@ def find_city_based_on_other_cities(missing_city_name: str, cities_on_board: Lis
 
 def find_cities(normalised_pts: np.ndarray) -> List[City]:
     ref_cities = get_cities_ref()
-    ref_cities_by_x = sorted(ref_cities, key=lambda city: city.x)
-    ref_cities_by_y = sorted(ref_cities, key=lambda city: city.y)
-    
-    # find city traversing the board from left to right
     cities = []
-    for i, point in enumerate(normalised_pts):
-        city = find_closest_city(point, ref_cities_by_x)
-        cities.append(City(name=city.name, x=point[0], y=point[1]))
-        
-    # find city traversing the board from top to bottom
-    for i, point in enumerate(normalised_pts):
-        city = find_closest_city(point, ref_cities_by_y)
-        cities.append(City(name=city.name, x=point[0], y=point[1]))
+  
+    for point in normalised_pts:
+        city = find_closest_city(point, ref_cities)
+        if city is not None:
+            cities.append(city)
         
     cities = remove_duplicates(cities)
-    missing_cities = get_missing_cities(cities, ref_cities)
     
+    pts_with_no_city = [City(name="UNKNOWN", x=point[0], y=point[1]) for point in normalised_pts if not any(city.x == point[0] and city.y == point[1] for city in cities)]
+    
+    missing_cities = get_missing_cities(cities, ref_cities)
     if len(missing_cities) > MAX_MISSING_CITIES:
-        print("Too many missing cities, skipping estimation")
+        print(f"Too many missing cities: {len(missing_cities)}")
         return cities
-      
       
     print(f"Missing cities: {[city for city in missing_cities]}")
     for missing_city in missing_cities.copy():
-        city = find_city_based_on_other_cities(missing_city, cities, ref_cities)
+        city = find_city_based_on_other_cities(missing_city, pts_with_no_city, cities, ref_cities)
         if city is not None:
             cities.append(city)
             missing_cities.remove(missing_city)
+    
     
     print(f"Missing cities after estimation: {[city for city in missing_cities]}")
     return cities
