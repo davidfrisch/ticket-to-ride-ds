@@ -54,7 +54,7 @@
   "ATHINA": {
     "x": 0.6442551612854004,
     "y": 0.8946033120155334,
-    "connections": ["BRINDIS", "SARAJEVO", "SOFIA", "SMYRNA"]
+    "connections": ["BRINDISI", "SARAJEVO", "SOFIA", "SMYRNA"]
   },
   "LISBOA": {
     "x": 0.04632437601685524,
@@ -171,7 +171,7 @@
   "BERLIN": {
     "x": 0.4830514192581177,
     "y": 0.3337354362010956,
-    "connections": ["FRANKFURT", "DANZIC", "ESSEN", "WIEN", "WARSAW"]
+    "connections": ["FRANKFURT", "DANZIC", "ESSEN", "WIEN", "WARSZAWA"]
   },
   "VENEZIA": {
     "x": 0.44382235407829285,
@@ -216,7 +216,7 @@
   "ROMA": {
     "x": 0.45075148344039917,
     "y": 0.7372151613235474,
-    "connections": ["MARSEILLE", "BRINDIS", "PALERMO", "VENEZIA"]
+    "connections": ["MARSEILLE", "BRINDISI", "PALERMO", "VENEZIA"]
   },
   "ZURICH": {
     "x": 0.3693225681781769,
