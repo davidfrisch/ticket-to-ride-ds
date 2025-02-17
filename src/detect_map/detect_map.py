@@ -52,14 +52,14 @@ def rotate_map(image, map_box, boat_box):
     
    
 
-def detect_map(path_image: str, output_dir="detect_map"):
+def detect_map(path_image: str, output_dir="outputs/detect_map"):
     # Load image
     image = cv2.imread(path_image, cv2.IMREAD_COLOR)
     if image is None:
         raise FileNotFoundError(f"Could not read image: {path_image}")
 
     # Load model
-    model = YOLO("../models/map_boat_best.pt")
+    model = YOLO("../../models/map_boat_best.pt")
 
     # Run YOLO detection
     
@@ -107,7 +107,11 @@ def crop_board(image, box):
 
 
 if __name__ == '__main__':
-    # detect_map("../boards/europe/IMG_9618.jpg")
-    for filename in os.listdir("../boards/europe"):
+    # detect_map("../../boards/europe/IMG_9618.jpg")
+    for filename in os.listdir("../../boards/europe"):
         if filename.lower().endswith((".jpg", ".png")):
-            detect_map(f"../boards/europe/{filename}")
+            detect_map(f"../../boards/europe/{filename}")
+    
+    for filename in os.listdir("../../boards/america"):
+        if filename.lower().endswith((".jpg", ".png")):
+            detect_map(f"../../boards/america/{filename}")

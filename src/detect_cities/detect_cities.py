@@ -6,7 +6,7 @@ import numpy as np
 from typing import List, Optional
 from collections import defaultdict
 from City import City
-from utils import draw_cities, get_cities_ref, merge_close_pts, distance_between_points
+from utils import draw_cities, get_cities_ref, merge_close_pts, distance_between_points, save_coordinates_to_json
 from math import sqrt
 from constants import MAX_MISSING_CITIES, MAX_MISSING_POINTS
 from logging import getLogger
@@ -288,7 +288,8 @@ def detect_cities(path_image: str):
         
         os.makedirs("outputs", exist_ok=True)
         filename = path_image.split("/")[-1].split(".")[0]
-        draw_cities(image, cities)
+        draw_cities(image, cities, has_text=True)
+        save_coordinates_to_json(cities, f"outputs/cities_{filename}.json")
         cv2.imwrite(f"outputs/cities_{filename}.jpg", image)
     except Exception as e:
         logger.error(f"Error processing {path_image}: {e}")
@@ -297,7 +298,7 @@ def detect_cities(path_image: str):
     
 
 if __name__ == '__main__':
-    dir_path = "../detect_map"
+    dir_path = "../detect_map/outputs"
     # detect_cities(os.path.join(dir_path, "board_IMG_9618.jpg"))
     for filename in os.listdir(dir_path):
         if filename.split(".")[-1] not in ["jpg", "jpeg", "png"]:
