@@ -1,546 +1,713 @@
 {
   "MUNCHEN_FRANKFURT": {
-    "color": "purple",
+    "color_1": "purple",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "MUNCHEN_ZURICH": {
-    "color": "yellow",
-    "tunnel": false,
+    "color_1": "yellow",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 2
   },
+
   "MUNCHEN_VENEZIA": {
-    "color": "blue",
-    "tunnel": false,
+    "color_1": "blue",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 2
   },
+
   "MUNCHEN_WIEN": {
-    "color": "orange",
+    "color_1": "orange",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "MOSKVA_PETROGRAD": {
-    "color": "white",
+    "color_1": "white",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "MOSKVA_KHARKOV": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "MOSKVA_SMOLENSK": {
-    "color": "orange",
+    "color_1": "orange",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "ESSEN_FRANKFURT": {
-    "color": "green",
+    "color_1": "green",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "ESSEN_BERLIN": {
-    "color": "blue",
+    "color_1": "blue",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "ESSEN_AMSTERDAM": {
-    "color": "yellow",
+    "color_1": "yellow",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
   "ESSEN_KOBENHAVN": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": "gray",
     "tunnel": false,
     "locomotive": 1,
     "route_length": 3
   },
+
   "EDINBURG_LONDON": {
-    "city1": "EDINBURG",
-    "city2": "LONDON",
-    "color": "",
+    "color_1": "black",
+    "color_2": "orange",
     "tunnel": false,
-    "locomotive": ""
+    "locomotive": 0,
+    "route_length": 4
   },
   "CONSTANTINOPLE_SOFIA": {
-    "color": "blue",
+    "color_1": "blue",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
   "CONSTANTINOPLE_SMYRNA": {
-    "color": "gray",
-    "tunnel": false,
+    "color_1": "gray",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 2
   },
   "CONSTANTINOPLE_ANGORA": {
-    "color": "gray",
-    "tunnel": false,
+    "color_1": "gray",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 2
   },
   "CONSTANTINOPLE_BUCURESTI": {
-    "color": "yellow",
+    "color_1": "yellow",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "CONSTANTINOPLE_SEVASTOPOL": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 2,
     "route_length": 4
   },
+
   "SOFIA_SARAJEVO": {
-    "color": "gray",
-    "tunnel": false,
+    "color_1": "gray",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 2
   },
+
   "SOFIA_ATHINA": {
-    "color": "purple",
+    "color_1": "purple",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "SOFIA_BUCURESTI": {
-    "color": "gray",
-    "tunnel": false,
+    "color_1": "gray",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 2
   },
+
   "BUCURESTI_SEVASTOPOL": {
-    "color": "white",
+    "color_1": "white",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "BUCURESTI_BUDAPEST": {
-    "color": "gray",
-    "tunnel": false,
+    "color_1": "gray",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 4
   },
+
   "BUCURESTI_KYIV": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "FRANKFURT_BRUXELLES": {
-    "color": "blue",
+    "color_1": "blue",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "FRANKFURT_PARIS": {
-    "color": "white",
+    "color_1": "white",
+    "color_2": "orange",
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "FRANKFURT_BERLIN": {
-    "color": "black",
+    "color_1": "black",
+    "color_2": "red",
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "FRANKFURT_AMSTERDAM": {
-    "color": "white",
+    "color_1": "white",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "STOCKHOLM_PETROGRAD": {
-    "color": "gray",
-    "tunnel": false,
+    "color_1": "gray",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 8
   },
+
   "STOCKHOLM_KOBENHAVN": {
-    "color": "yellow",
+    "color_1": "yellow",
+    "color_2": "white",
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "KYIV_WILNO": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "KYIV_WARSZAWA": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "KYIV_BUDAPEST": {
-    "color": "gray",
-    "tunnel": false,
+    "color_1": "gray",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 6
   },
+
   "KYIV_KHARKOV": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "KYIV_SMOLENSK": {
-    "color": "red",
+    "color_1": "red",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "PAMPLONA_PARIS": {
-    "color": "blue",
+    "color_1": "blue",
+    "color_2": "green",
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "PAMPLONA_BARCELONA": {
-    "color": "gray",
-    "tunnel": false,
+    "color_1": "gray",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 2
   },
+
   "PAMPLONA_MADRID": {
-    "color": "black",
-    "tunnel": false,
+    "color_1": "black",
+    "color_2": "white",
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 3
   },
+
   "PAMPLONA_MARSEILLE": {
-    "color": "red",
+    "color_1": "red",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "WARSZAWA_WILNO": {
-    "color": "red",
+    "color_1": "red",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "WARSZAWA_DANZIC": {
-    "city1": "WARSZAWA",
-    "city2": "DANZIC",
-    "color": "",
-    "tunnel": false,
-    "locomotive": ""
-  },
-  "WARSZAWA_WIEN": {
-    "color": "blue",
-    "tunnel": false,
-    "locomotive": 0,
-    "route_length": 4
-  },
-  "WARSZAWA_BERLIN": {
-    "color": "purple",
-    "tunnel": false,
-    "locomotive": 0,
-    "route_length": 4
-  },
-  "LISBOA_CADIZ": {
-    "color": "blue",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
+  "WARSZAWA_WIEN": {
+    "color_1": "blue",
+    "color_2": null,
+    "tunnel": false,
+    "locomotive": 0,
+    "route_length": 4
+  },
+
+  "WARSZAWA_BERLIN": {
+    "color_1": "purple",
+    "color_2": "yellow",
+    "tunnel": false,
+    "locomotive": 0,
+    "route_length": 4
+  },
+
+  "LISBOA_CADIZ": {
+    "color_1": "blue",
+    "color_2": null,
+    "tunnel": false,
+    "locomotive": 0,
+    "route_length": 2
+  },
+
   "LISBOA_MADRID": {
-    "color": "purple",
+    "color_1": "purple",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "ERZURUM_SEVASTOPOL": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 2,
     "route_length": 4
   },
+
   "ERZURUM_SOCHI": {
-    "color": "red",
-    "tunnel": false,
+    "color_1": "red",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 3
   },
+
   "ERZURUM_ANGORA": {
-    "color": "black",
+    "color_1": "black",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "ROMA_MARSEILLE": {
-    "color": "gray",
-    "tunnel": false,
+    "color_1": "gray",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 4
   },
+
   "ROMA_BRINDISI": {
-    "color": "white",
+    "color_1": "white",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "ROMA_PALERMO": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 1,
     "route_length": 4
   },
+
   "ROMA_VENEZIA": {
-    "color": "black",
+    "color_1": "black",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "PARIS_DIEPPE": {
-    "color": "purple",
+    "color_1": "purple",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 1
   },
+
   "PARIS_BRUXELLES": {
-    "color": "yellow",
+    "color_1": "yellow",
+    "color_2": "red",
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "PARIS_BREST": {
-    "color": "black",
+    "color_1": "black",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "PARIS_ZURICH": {
-    "color": "gray",
-    "tunnel": false,
+    "color_1": "gray",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 3
   },
+
   "PARIS_MARSEILLE": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "ANGORA_SMYRNA": {
-    "color": "orange",
-    "tunnel": false,
+    "color_1": "orange",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 3
   },
+
   "WILNO_PETROGRAD": {
-    "color": "blue",
+    "color_1": "blue",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "WILNO_RICA": {
-    "city1": "WILNO",
-    "city2": "RICA",
-    "color": "",
+    "color_1": "green",
+    "color_2": null,
     "tunnel": false,
-    "locomotive": ""
+    "locomotive": 0,
+    "route_length": 4
   },
+
   "WILNO_SMOLENSK": {
-    "color": "yellow",
+    "color_1": "yellow",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "LONDON_DIEPPE": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": "gray",
     "tunnel": false,
     "locomotive": 1,
     "route_length": 2
   },
+
   "LONDON_AMSTERDAM": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 2,
     "route_length": 2
   },
+
   "PALERMO_BRINDISI": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 1,
     "route_length": 3
   },
+
   "PALERMO_SMYRNA": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 2,
     "route_length": 6
   },
+
   "BERLIN_DANZIC": {
-    "city1": "BERLIN",
-    "city2": "DANZIC",
-    "color": "",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
-    "locomotive": ""
+    "locomotive": 0,
+    "route_length": 4
   },
+
   "BERLIN_WIEN": {
-    "color": "green",
+    "color_1": "green",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "ZAGRAB_VENEZIA": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "ZAGRAB_WIEN": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "ZAGRAB_BUDAPEST": {
-    "color": "orange",
+    "color_1": "orange",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "ZAGRAB_SARAJEVO": {
-    "color": "red",
+    "color_1": "red",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "BRINDISI_ATHINA": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 1,
     "route_length": 4
   },
+
   "BARCELONA_MARSEILLE": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "BARCELONA_MADRID": {
-    "color": "yellow",
+    "color_1": "yellow",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "MARSEILLE_ZURICH": {
-    "color": "purple",
-    "tunnel": false,
+    "color_1": "purple",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 2
   },
   "PETROGRAD_RICA": {
-    "city1": "PETROGRAD",
-    "city2": "RICA",
-    "color": "",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
-    "locomotive": ""
+    "locomotive": 0,
+    "route_length": 4
   },
+
   "SEVASTOPOL_ROSTOV": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "SEVASTOPOL_SOCHI": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 1,
     "route_length": 2
   },
+
   "ZURICH_VENEZIA": {
-    "color": "green",
-    "tunnel": false,
+    "color_1": "green",
+    "color_2": null,
+    "tunnel": true,
     "locomotive": 0,
     "route_length": 2
   },
+
   "RICA_DANZIC": {
-    "city1": "RICA",
-    "city2": "DANZIC",
-    "color": "",
+    "color_1": "black",
+    "color_2": null,
     "tunnel": false,
-    "locomotive": ""
+    "locomotive": 0,
+    "route_length": 3
   },
+
   "SMYRNA_ATHINA": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 1,
     "route_length": 2
   },
+
   "CADIZ_MADRID": {
-    "color": "orange",
+    "color_1": "orange",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "DIEPPE_BREST": {
-    "color": "orange",
+    "color_1": "orange",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "BUDAPEST_WIEN": {
-    "color": "red",
+    "color_1": "red",
+    "color_2": "white",
     "tunnel": false,
     "locomotive": 0,
     "route_length": 1
   },
+
   "BUDAPEST_SARAJEVO": {
-    "color": "purple",
+    "color_1": "purple",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 3
   },
+
   "AMSTERDAM_BRUXELLES": {
-    "color": "black",
+    "color_1": "black",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 1
   },
+
   "SARAJEVO_ATHINA": {
-    "color": "green",
+    "color_1": "green",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "BREST_PAMPLONA": {
-    "color": "purple",
+    "color_1": "purple",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 4
   },
+
   "ROSTOV_SOCHI": {
-    "color": "gray",
+    "color_1": "gray",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "ROSTOV_KHARKOV": {
-    "color": "green",
+    "color_1": "green",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2
   },
+
   "BRUXELLES_DIEPPE": {
-    "color": "green",
+    "color_1": "green",
+    "color_2": null,
     "tunnel": false,
     "locomotive": 0,
     "route_length": 2

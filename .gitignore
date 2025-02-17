@@ -11,3 +11,4 @@ tickettoride-cities-*
 __pycache__
 
 *_IMG_*
+.DS_STORE
