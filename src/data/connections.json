@@ -4,6 +4,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 30,
     "route_length": 2
   },
 
@@ -12,6 +13,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -20,6 +22,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -28,6 +31,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 25,
     "route_length": 3
   },
 
@@ -36,6 +40,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": -20,
     "route_length": 4
   },
 
@@ -44,6 +49,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 25,
     "route_length": 4
   },
 
@@ -52,6 +58,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -60,6 +67,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 10,
     "route_length": 2
   },
 
@@ -68,6 +76,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -76,6 +85,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": -40,
     "route_length": 3
   },
   "ESSEN_KOBENHAVN": {
@@ -83,6 +93,7 @@
     "color_2": "gray",
     "tunnel": false,
     "locomotive": 1,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -91,6 +102,7 @@
     "color_2": "orange",
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 4
   },
   "CONSTANTINOPLE_SOFIA": {
@@ -98,6 +110,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
   "CONSTANTINOPLE_SMYRNA": {
@@ -105,6 +118,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
   "CONSTANTINOPLE_ANGORA": {
@@ -112,6 +126,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
   "CONSTANTINOPLE_BUCURESTI": {
@@ -119,6 +134,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -127,6 +143,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 2,
+    "curve": -20,
     "route_length": 4
   },
 
@@ -135,6 +152,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -143,6 +161,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": -20,
     "route_length": 3
   },
 
@@ -151,6 +170,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": -25,
     "route_length": 2
   },
 
@@ -159,6 +179,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 35,
     "route_length": 4
   },
 
@@ -167,6 +188,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 4
   },
 
@@ -175,6 +197,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 4
   },
 
@@ -183,6 +206,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 18,
     "route_length": 2
   },
 
@@ -191,6 +215,7 @@
     "color_2": "orange",
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -199,6 +224,7 @@
     "color_2": "red",
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -207,6 +233,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 15,
     "route_length": 2
   },
 
@@ -215,6 +242,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 5,
     "route_length": 8
   },
 
@@ -223,6 +251,7 @@
     "color_2": "white",
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -231,6 +260,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 30,
     "route_length": 2
   },
 
@@ -239,6 +269,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": -8,
     "route_length": 4
   },
 
@@ -247,6 +278,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 18,
     "route_length": 6
   },
 
@@ -255,6 +287,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 28,
     "route_length": 4
   },
 
@@ -263,6 +296,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 40,
     "route_length": 3
   },
 
@@ -271,6 +305,7 @@
     "color_2": "green",
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 4
   },
 
@@ -279,6 +314,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -287,6 +323,7 @@
     "color_2": "white",
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -295,6 +332,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 20,
     "route_length": 4
   },
 
@@ -303,6 +341,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -311,6 +350,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -319,6 +359,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 4
   },
 
@@ -327,6 +368,7 @@
     "color_2": "yellow",
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 4
   },
 
@@ -335,6 +377,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": -25,
     "route_length": 2
   },
 
@@ -343,6 +386,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 70,
     "route_length": 3
   },
 
@@ -351,6 +395,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 2,
+    "curve": 20,
     "route_length": 4
   },
 
@@ -359,6 +404,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -367,6 +413,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 80,
     "route_length": 3
   },
 
@@ -375,6 +422,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": -45,
     "route_length": 4
   },
 
@@ -383,6 +431,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -391,6 +440,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 1,
+    "curve": 35,
     "route_length": 4
   },
 
@@ -399,6 +449,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -407,6 +458,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 1
   },
 
@@ -415,6 +467,7 @@
     "color_2": "red",
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -423,6 +476,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -431,6 +485,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 25,
     "route_length": 3
   },
 
@@ -439,6 +494,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": -18,
     "route_length": 4
   },
 
@@ -447,6 +503,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": -20,
     "route_length": 3
   },
 
@@ -455,6 +512,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 4
   },
 
@@ -463,6 +521,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 20,
     "route_length": 4
   },
 
@@ -471,6 +530,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -479,6 +539,7 @@
     "color_2": "gray",
     "tunnel": false,
     "locomotive": 1,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -487,6 +548,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 2,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -495,6 +557,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 1,
+    "curve": 30,
     "route_length": 3
   },
 
@@ -503,6 +566,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 2,
+    "curve": 0,
     "route_length": 6
   },
 
@@ -511,6 +575,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": -40,
     "route_length": 4
   },
 
@@ -519,6 +584,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -527,6 +593,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -535,6 +602,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -543,6 +611,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": -5,
     "route_length": 2
   },
 
@@ -551,6 +620,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -559,6 +629,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 1,
+    "curve": 25,
     "route_length": 4
   },
 
@@ -567,6 +638,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 10,
     "route_length": 4
   },
 
@@ -575,6 +647,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -583,6 +656,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
   "PETROGRAD_RICA": {
@@ -590,6 +664,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 4
   },
 
@@ -598,6 +673,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": -45,
     "route_length": 4
   },
 
@@ -606,6 +682,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 1,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -614,6 +691,7 @@
     "color_2": null,
     "tunnel": true,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -622,6 +700,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 30,
     "route_length": 3
   },
 
@@ -630,6 +709,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 1,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -638,6 +718,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 50,
     "route_length": 3
   },
 
@@ -646,6 +727,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 15,
     "route_length": 2
   },
 
@@ -654,6 +736,7 @@
     "color_2": "white",
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 1
   },
 
@@ -662,6 +745,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 3
   },
 
@@ -670,6 +754,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 1
   },
 
@@ -678,6 +763,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 4
   },
 
@@ -686,6 +772,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": -20,
     "route_length": 4
   },
 
@@ -694,6 +781,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -702,6 +790,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   },
 
@@ -710,6 +799,7 @@
     "color_2": null,
     "tunnel": false,
     "locomotive": 0,
+    "curve": 0,
     "route_length": 2
   }
 }

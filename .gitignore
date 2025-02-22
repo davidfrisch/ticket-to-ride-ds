@@ -12,3 +12,4 @@ __pycache__
 
 *_IMG_*
 .DS_STORE
+notebooks/wagons-1/*
